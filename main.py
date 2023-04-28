@@ -45,13 +45,13 @@ def messenger():
             name = request.form["name-chat"]
             members = [i for i in request.form if i != "name-chat"]
 
-            requests.post(f"http://127.0.0.1:8080/api/add_chat/{name}/none/{','.join(members)}/0/{current_user.id}")
+            requests.post(f"api/add_chat/{name}/none/{','.join(members)}/0/{current_user.id}")
 
         elif "user-email" in request.form:
             user = db_sess.query(User).filter(User.email == request.form['user-email']).first()
 
             if user and user.id != current_user.id:
-                requests.post(f"http://127.0.0.1:8080/api/add_chat/privat_chat/non/{user.id}/1/{current_user.id}")
+                requests.post(f"api/add_chat/privat_chat/non/{user.id}/1/{current_user.id}")
 
         return redirect('/messenger')
     else:
@@ -106,4 +106,3 @@ def login():
 
 if __name__ == '__main__':
     # app.run(port=5000, host='0.0.0.0')
-    serve(app, port=5000, host='0.0.0.0')
