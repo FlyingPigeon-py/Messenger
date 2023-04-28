@@ -4,9 +4,11 @@ import requests
 from flask import render_template, Flask, redirect, request
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 
+from datetime import datetime as dt
 from waitress import serve
 import api
 from data import db_session
+from data.chat import Chat
 from data.users import User
 from forms import LoginForm, RegisterForm
 
@@ -18,6 +20,36 @@ db_session.global_init("db/messenger.db")
 db_sess = db_session.create_session()
 app.register_blueprint(api.blueprint)
 
+
+def get_current_time():
+    return str(dt.now().strftime("%Y/%m/%d/ %H:%M:%S"))
+
+
+def add_chat(name, img, members, isPr, cui):
+    isPr = True if isPr == 1 else False
+    chat = Chat(
+        name=name,
+        owner_id=cui,
+        img="https://otkritkis.com/wp-content/uploads/2021/11/anim-avatar-discord-29.gif",
+        members=str(cui) + ',' + members,
+        messages=json.dumps([{'user_id': 1, 'text': '', 'time': get_current_time()}]),
+        isPrivate=bool(isPr)
+    )
+
+    db_sess.add(chat)
+    db_sess.commit()
+
+    for i in members.split(',') + [cui]:
+        try:
+            user = db_sess.query(User).get(int(i))
+            chats = json.loads(user.chats)
+            chats.append(chat.id)
+            user.chats = json.dumps(chats)
+        except Exception as err:
+            pass
+
+    db_sess.commit()
+    return "200"
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -44,15 +76,15 @@ def messenger():
         if "name-chat" in request.form:
             name = request.form["name-chat"]
             members = [i for i in request.form if i != "name-chat"]
-
-            requests.post(f"api/add_chat/{name}/none/{','.join(members)}/0/{current_user.id}")
+            add_chat(name, 'none', ','.join(members), 0, current_user.id)
+            # requests.post(f"/api/add_chat/{name}/none/{)}/0/{current_user.id}")
 
         elif "user-email" in request.form:
             user = db_sess.query(User).filter(User.email == request.form['user-email']).first()
 
             if user and user.id != current_user.id:
-                requests.post(f"api/add_chat/privat_chat/non/{user.id}/1/{current_user.id}")
-
+                # requests.post(f"/api/add_chat/privat_chat/non/{user.id}/1/{current_user.id}")
+                add_chat('private_chat', 'none', str(user.id), 1, current_user.id)
         return redirect('/messenger')
     else:
         return render_template('messenger3.html')
