@@ -33,27 +33,6 @@
             </button>
         </div>
         <div class="chats" id="chats">
-            <button class="chat_btn" onclick="OpenChat(1)">
-                <div class="chat">
-                    <img class="chat_icon"
-                         src="https://w7.pngwing.com/pngs/761/651/png-transparent-avatar-cloud-crying-rain-avatars-xmas-giveaway-icon.png">
-                    <div>
-                        <p style="overflow: hidden;">Саратов</p>
-                        <p class="last_messege">Нет такой, я не вру</p>
-                    </div>
-                </div>
-            </button>
-            <button class="chat_btn" onclick="OpenChat(2)">
-                <div class="chat">
-                    <img class="chat_icon"
-                         src="https://avatarko.ru/img/avatar/13/pokemon_pikachu_Starcraft_12668.jpg">
-                    <div>
-                        <p style="overflow: hidden;">Куда</p>
-                        <p class="last_messege">Нет такой, я не вру
-                        </p>
-                    </div>
-                </div>
-            </button>
         </div>
         <div class="add_chats" id="add_chats">
             <form action="" class="add_users_bar" method="POST" id="private_chats">
@@ -63,30 +42,6 @@
                 </p>
                 <input autocomplete="off" class="field_text" type="text" name="name-chat" id="name-chat"
                        placeholder="Название чата" value="">
-                <div class="form_radio_btn">
-                    <input id="radio-1" name="radio-1" type="checkbox" value="1">
-                    <label for="radio-1">
-                        <img class="chat_icon"
-                             src="https://w7.pngwing.com/pngs/761/651/png-transparent-avatar-cloud-crying-rain-avatars-xmas-giveaway-icon.png">
-                        <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                    </label>
-                </div>
-                <div class="form_radio_btn">
-                    <input id="radio-2" name="radio-2" type="checkbox" value="2">
-                    <label for="radio-2">
-                        <img class="chat_icon"
-                             src="https://w7.pngwing.com/pngs/761/651/png-transparent-avatar-cloud-crying-rain-avatars-xmas-giveaway-icon.png">
-                        <p style="overflow: hidden; font-size: 17px;">Ананс</p>
-                    </label>
-                </div>
-                <div class="form_radio_btn">
-                    <input id="radio-3" name="radio-3" type="checkbox" value="3">
-                    <label for="radio-3">
-                        <img class="chat_icon"
-                             src="https://w7.pngwing.com/pngs/761/651/png-transparent-avatar-cloud-crying-rain-avatars-xmas-giveaway-icon.png">
-                        <p style="overflow: hidden; font-size: 17px;">Антоша</p>
-                    </label>
-                </div>
             </form>
             <form action="" class="add_users_bar" style="margin-bottom: 20px;" method="POST">
                 <p style="color: azure; overflow: hidden; font-size: 16px; margin-left: 10px; margin-bottom: 10px">
@@ -172,83 +127,6 @@
                                     onclick="OnOffAddMember()">
                                 <ion-icon name="person-add"></ion-icon>
                                 add
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://cspromogame.ru//storage/upload_images/avatars/4034.jpg">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://cspromogame.ru//storage/upload_images/avatars/1901.jpg">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://cspromogame.ru//storage/upload_images/avatars/4842.jpg">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://media.tenor.com/EmV5v0i8-38AAAAC/anime-eating.gif">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://media.tenor.com/CULefUr2qogAAAAC/senko-the-helpful-fox-senko-san.gif">
-                            <p style="overflow: hidden; font-size: 17px;">Олех</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://thumbs.gfycat.com/AdoredMellowAnkolewatusi-size_restricted.gif">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="form_chat_btn">
-                            <img class="chat_icon"
-                                 src="https://pa1.narvii.com/6982/4b38089a5eb35cc04dec10d8ac8dc40d36b81bf1r1-320-308_00.gif">
-                            <p style="overflow: hidden; font-size: 17px;">Вадимка</p>
-                            <button class="chat_member_button" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            </button>
-                            <button class="chat_member_button_del" href="#" onclick="OnOffChatSettings()">
-                                <ion-icon name="close"></ion-icon>
                             </button>
                         </div>
                     </div>
