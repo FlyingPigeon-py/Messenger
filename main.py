@@ -76,7 +76,8 @@ def messenger():
         if "name-chat" in request.form:
             name = request.form["name-chat"]
             members = [i for i in request.form if i != "name-chat"]
-            add_chat(name, 'none', ','.join(members), 0, current_user.id)
+            if members:
+                add_chat(name, 'none', ','.join(members), 0, current_user.id)
             # requests.post(f"/api/add_chat/{name}/none/{)}/0/{current_user.id}")
 
         elif "user-email" in request.form:
